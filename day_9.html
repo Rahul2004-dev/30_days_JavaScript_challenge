@@ -1,0 +1,93 @@
+<!-- // Day 9: DOM Manipulation Tasks/Activities: -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .highlight {
+            background-color: yellow;
+            font-weight: bold;
+            }
+        
+    </style>
+</head>
+<body>
+    <div>
+        <p id="parag">Hello, I am Rahul Gupta</p>
+        <h2 class="class">Great knownledge Become a Great People</h2>
+        <ul id="unOrdered-list">
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+        </ul>
+        <h4>Good Night</h4>
+    </div>
+    <img id="myImage" src="original-image.jpg" alt="Original Image">
+    <div id="myDiv">Hello World!</div>
+    <button id="click">Click Me!</button>
+    <p id="paragraph">Hello dear Hitesh Sir</p>
+    <script>
+        <!-- // Activity 1: Selecting and Manipulating Elements
+        // • Task 1: Select an HTML element by its ID and change its text content. -->
+        document.querySelector("#parag").innerText = "Hello, Dear Hitesh Sir";
+
+        // • Task 2: Select an HTML element by its class and change its background color.
+        const color = document.getElementsByClassName("class")[0]
+        color.style.backgroundColor = "red"
+
+        // Activity 2: Creating and Appending Elements
+        // • Task 3: Create a new div element with some text content and append it to the body.
+        const newDiv = document.createElement('div');
+        newDiv.textContent = "Thank you for this Challeng."
+        document.body.appendChild(newDiv)
+
+        // • Task 4: Create a new li element and add it to an existing ul list.
+        const newLi = document.createElement("li")
+        const select = document.querySelector("#unOrdered-list")
+        newLi.textContent = "5";
+        select.appendChild(newLi)
+
+        // Activity 3: Removing Elements
+        // • Task 5: Select an HTML element and remove it from the DOM.
+        const removed = document.getElementsByTagName("h4")[0]
+        removed.remove()
+
+        // • Task 6: Remove the last child of a specific HTML element.
+        const lastChild = document.querySelector("#unOrdered-list")[document.querySelector("#unOrdered-list").length - 1]
+        lastChild.remove();
+
+        // Activity 4: Modifying Attributes and Classes
+        // • Task 7: Select an HTML element and change one of its attributes (e.g., src of an img tag). 
+          const img = document.getElementById("myImage");
+          img.src = "new-image.jpg"
+        //   or img.setAttribute('src', 'new-image.jpg');
+        
+        // • Task 8: Add and remove a CSS class to/from an HTML element.
+        // !-- CSS -->
+        //     
+        const div = document.getElementById('myDiv');
+
+        // Add the CSS class
+        div.classList.add('highlight');
+
+        // Remove the CSS class
+        div.classList.remove('highlight');
+
+        // Activity 5: Event Handling
+        // • Task 9: Add a click event listener to a button that changes the text content of a paragraph. 
+        const buttons = document.querySelector("#click");
+        const para = document.querySelector("#paragraph");
+        buttons.addEventListener("click", function(){
+            para.textContent = "I am Rahul Gupta";
+        })
+
+        // • Task 10: Add a mouseover event listener to an element that changes its border color. 
+        const hoverDiv = document.getElementById('myDiv');
+        hoverDiv.addEventListener("mouseover", function(){
+            hoverDiv.style.borderColor = "blue";
+        });
+    </script>
+</body>
+</html>
